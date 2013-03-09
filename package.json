@@ -1,7 +1,6 @@
 {
   "name": "dmon",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.0.3",
   "description": "dmon",
   "readme": "# dmon",
   "contributors": [],
@@ -9,6 +8,7 @@
     "node": "0.8.x",
     "npm": "1.1.x"
   },
+  "main": "./main",
   "dependencies": {
     "winston": "~0.6.2"
   }
