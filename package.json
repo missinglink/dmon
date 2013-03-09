@@ -1,0 +1,15 @@
+{
+  "name": "dmon",
+  "version": "0.0.1",
+  "private": true,
+  "description": "dmon",
+  "readme": "# dmon",
+  "contributors": [],
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  },
+  "dependencies": {
+    "winston": "~0.6.2"
+  }
+}
