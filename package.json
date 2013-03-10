@@ -1,6 +1,6 @@
 {
   "name": "dmon",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "dmon",
   "readme": "# dmon",
   "contributors": [],
@@ -12,6 +12,7 @@
   "dependencies": {
     "winston": "~0.6.2",
     "underscore": "~1.4.4",
-    "zeromq-port": "0.0.1"
+    "zeromq-port": "0.0.1",
+    "native-dns": "~0.4.1"
   }
 }
