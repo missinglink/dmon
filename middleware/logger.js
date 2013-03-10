@@ -1,6 +1,6 @@
 
 var winston = require('winston');
-var config = require('./config');
+var config = require('./winston.config');
 
 var logger = {};
 var colors = config.colors;
