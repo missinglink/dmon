@@ -1,34 +1,45 @@
 
-var roles = {
-  socketserver: "ws://localhost:2000",
-  webserver: "http://localhost:3000",
-  fileserver: "http://localhost:3001",
-  geoservice: "ipc:///tmp/zombie.geo.sock"
+var winston = require('winston');
+winston.cli();
+
+var debug = function ()
+{
+  winston.data.apply( null, arguments );
 };
 
-module.exports = function( dmon ){
+var client = require('../lib/client');
 
-  dmon.process.on( 'message', function ( data ) {
+module.exports = function( roles ) {
 
-    console.log( 'middleware:', data );
+  return function( dmon ) {
 
-    if( data.command == 'service::connect' ){
-      dmon.process.send({
-        command: 'service::assign',
+    var ipc = client( dmon.process );
+
+    ipc.on( 'service::connect', function ( data ) {
+      debug( 'service::connect', data );
+
+      if( !roles || typeof roles[ data.role ] != 'function' ) {
+        return winston.error( 'Role not defined: ' + data.role );
+      }
+
+      ipc.emit( 'service::assign', {
         role: data.role,
-        host: roles[ data.role ]
+        host: roles[ data.role ]()
       });
-    }
+    });
 
-    if( data.command == 'service::find' ){
-      dmon.process.send({
-        command: 'service::discovery',
+    ipc.on( 'service::find', function ( data ) {
+      debug( 'service::find', data );
+
+      if( !roles || typeof roles[ data.role ] != 'function' ) {
+        return winston.error( 'Role not defined: ' + data.role );
+      }
+
+      ipc.emit( 'service::discovery', {
         role: data.role,
-        host: roles[ data.role ]
+        host: roles[ data.role ]()
       });
-    }
+    });
 
-  });
-
-
+  };
 };

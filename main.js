@@ -1,17 +1,13 @@
 
-var Manager = require('./lib/Manager');
-var Client = require('./lib/Client');
-
-// Client.adapters['child'] = require('./adapters/child');
-// Client.adapters['pair'] = require('./adapters/pair');
-
 module.exports = {
-  manager: new Manager(),
-  client: require('./adapters/messagebus'),
+  manager: require('./lib/manager'),
+  client: require('./lib/client'),
   codec: {
-    json: {
-      encode: JSON.stringify,
-      decode: JSON.parse
-    }
+    json: require('./lib/json')
+  },
+  middleware: {
+    utf: require('./middleware/utf'),
+    logger: require('./middleware/logger'),
+    discovery: require('./middleware/discovery')
   }
 };
