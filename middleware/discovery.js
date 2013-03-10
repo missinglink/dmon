@@ -1,10 +1,13 @@
 
+// This is and example of how to use the IPC
+// channel from parent -> child to do service discovery
+
 var winston = require('winston');
 winston.cli();
 
 var debug = function ()
 {
-  winston.data.apply( null, arguments );
+  // winston.data.apply( null, arguments );
 };
 
 var client = require('../lib/client');
