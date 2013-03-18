@@ -25,9 +25,11 @@ module.exports = function( dmon ){
   setup( dmon );
 
   dmon.process.stdout.on( 'data', function ( data ) {
+    data = data.toString('utf8');
     var stdout = data.trim().split('\n').map( logger[ dmon.name ] );
   });
   dmon.process.stderr.on( 'data', function (data) {
+    data = data.toString('utf8');
     var stderr = data.trim().split('\n').map( logger['!'+dmon.name ] );
   });
   dmon.process.on( 'exit', function (code) { logger['exit']( dmon.name + ' with code ' + code ); });
