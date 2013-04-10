@@ -1,18 +1,25 @@
 {
   "name": "dmon",
-  "version": "0.0.8",
-  "description": "dmon",
-  "readme": "# dmon",
-  "contributors": [],
+  "version": "0.0.9",
+  "description": "A daemon manager and service discovery module for nodejs.",
+  "readme": "# A daemon manager and service discovery module for nodejs.",
+  "main": "./main",
+  "contributors": [
+    {
+      "name": "Peter Johnson",
+      "email": "insomnia@rcpt.at"
+    }
+  ],
   "engines": {
-    "node": "0.8.x",
+    "node": "0.6",
     "npm": "1.1.x"
   },
-  "main": "./main",
   "dependencies": {
     "winston": "~0.6.2",
-    "underscore": "~1.4.4",
-    "zeromq-port": "0.0.1",
     "native-dns": "~0.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/missinglink/dmon.git"
   }
 }
