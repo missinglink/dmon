@@ -26,9 +26,7 @@ dmon.manager.start();
 
 ### dmon.json
 
-Each service will need to have a `dmon.json` file which contains information about how to control the child process.
-
-Each service should have a `dmon.json` in the root of it's codebase.
+Each service will need to have a `dmon.json` file in the root of it's codebase; it contains information about how to control the child process.
 
 ```javascript
 {
@@ -38,3 +36,7 @@ Each service should have a `dmon.json` in the root of it's codebase.
   "args": [ "app.js", "config/local.json" ]
 }
 ```
+
+Screenshot
+----------
+![dmon](https://github.com/missinglink/dmon/raw/master/screenshot.png "dmon")
